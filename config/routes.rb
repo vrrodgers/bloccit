@@ -3,7 +3,8 @@ Rails.application.routes.draw do
 
   get 'about' => 'welcome#about'
   
-  root 'welcome#index'
+  root to: 'welcome#index'
+  resources :advertisements
   
   get 'welcome/contact'
   get 'welcome/faq'

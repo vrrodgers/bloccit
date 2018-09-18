@@ -21,4 +21,16 @@
      letters.shuffle!
      letters[0,rand(3..8)].join
    end
+   #advertisement
+    def self.random_price
+      numbers = rand(1..9)
+      price = numbers.to_s + ".00"
+    end  
+   def self.random_copy
+      sentence = []
+      rand(1..2).times do
+        sentence << random_sentence
+      end
+    end
+
  end
