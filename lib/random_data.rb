@@ -23,14 +23,14 @@
    end
    #advertisement
     def self.random_price
-      numbers = rand(1..9)
-      price = numbers.to_s + ".00"
+     rand(1..9)
     end  
    def self.random_copy
       sentence = []
       rand(1..2).times do
         sentence << random_sentence
       end
+      sentence.join()
     end
 
  end
