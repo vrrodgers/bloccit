@@ -23,14 +23,21 @@
    end
    #advertisement
     def self.random_price
-      numbers = rand(1..9)
-      price = numbers.to_s + ".00"
+     rand(1..9)
     end  
    def self.random_copy
       sentence = []
       rand(1..2).times do
         sentence << random_sentence
       end
+      sentence.join()
     end
-
+    #question
+    def self.random_question
+      strings = []
+      rand(1..3).times do
+       strings << random_word
+      end
+      sentence = strings.join(" ? ")
+    end
  end

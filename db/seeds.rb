@@ -38,3 +38,13 @@
  
  puts "Seed finished"
  puts "#{Advertisement.count} advertisement created"
+
+ #create Questions
+ 5.times do
+  Question.create!(
+    title: RandomData.random_question,
+    body: RandomData.random_sentence
+  )
+  puts "Seed finished"
+  puts "#{Question.count} question created"
+ end
