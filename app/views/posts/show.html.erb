@@ -4,6 +4,10 @@
   <div class="row">
    <div class="col-md-8">
      <p><%= @post.body %></p>
+     <% @sponsoredposts.each do |sponsoredpost| %>
+      <h3><%= sponsoredpost.title %></h3>
+      <p><%= sponsoredpost.body %></p>
+     <%end%>
    </div>
     <div class="col-md-4">
       <%= link_to "Edit", edit_topic_post_path(@post.topic, @post), class: 'btn btn-success' %>

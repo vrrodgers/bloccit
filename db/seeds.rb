@@ -57,4 +57,14 @@
   puts "Seed finished"
   puts "#{Question.count} question created"
  end
+ #create sponsoredposts
 
+ 5.times do
+ SponsoredPost.create!(
+  title: RandomData.random_question,
+  body: RandomData.random_sentence,
+  price: RandomData.random_price
+ )
+  puts "seed finished"
+  puts "#{SponsoredPost.count} sponsoredpost created"
+ end

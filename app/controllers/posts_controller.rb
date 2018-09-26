@@ -11,7 +11,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-  
+    @sponsoredposts = SponsoredPost.where(topic_id: params[:topic_id])
   end
 
   def new
