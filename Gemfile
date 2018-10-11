@@ -37,7 +37,8 @@
  
  gem 'thor', '0.19.1'
  gem 'bootstrap-sass'
- 
+ gem 'figaro', '1.0'
+ gem 'dotenv', '~> 2.5'
  # Used for encrypting passwords
  gem 'bcrypt'
 
