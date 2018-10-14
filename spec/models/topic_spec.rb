@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Topic, type: :model do
   let(:topic) { create(:topic) }
-
+  let(:user) { create(:user) }
+  let(:post) { create(:post) }
+  let(:vote) { create(:vote, post: post, user: user) }
   let(:public) { true }
   
    

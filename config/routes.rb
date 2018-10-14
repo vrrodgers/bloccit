@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   post 'users/confirm' => 'users#confirm'
 
   resources :questions
-  post 'about' => 'welcome#about'
+  get 'about' => 'welcome#about'
   
   root to: 'welcome#index'
   resources :advertisements
