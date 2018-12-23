@@ -10,7 +10,7 @@
             <small>
         <p><%= sponsoredpost.body %></p>
         </small>
-        Price $<%= sponsoredpost.price %>
+        Price <%= number_to_currency(sponsoredpost.price) %>
         </div>
         <br>
         </div>

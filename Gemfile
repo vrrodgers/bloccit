@@ -36,7 +36,7 @@
  gem 'jbuilder', '~> 2.5'
  
  gem 'thor', '0.19.1'
- gem 'bootstrap-sass'
+ gem 'bootstrap', '~> 4.1', '>= 4.1.3'
  gem 'figaro', '1.0'
  gem 'dotenv', '~> 2.5'
  # Used for encrypting passwords

@@ -13,5 +13,11 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap-sprockets";
 @import "bootstrap";
+
+.card-margin{
+    margin: 5px 5px 5px 5px;
+}
+.topic-title{
+    float: center;
+}

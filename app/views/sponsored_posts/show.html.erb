@@ -1,12 +1,11 @@
-<h1>SponsoredPosts#show</h1>
-<p>Find me in app/views/sponsored_posts/show.html.erb</p>
+<h1>SponsoredPosts</h1>
 <h1><%= @sponsoredpost.title %></h1>
  
   <div class="row">
    <div class="col-md-8">
-     <p><%= @sponsoredpost.title %></p>
      <p><%= @sponsoredpost.body %></p>
-     <p><%= @sponsoredpost.price %></p>
+     <p><%= number_to_currency(@sponsoredpost.price) %></p>
    </div>
    
   </div>
+  <%= link_to @topic.name, topic_path(@topic),class: 'btn btn-primary' %>
