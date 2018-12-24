@@ -1,4 +1,4 @@
-<h1><%= @topic.name %></h1>
+<h4 class="topic-name" ><%= @topic.name %></h4>
 <% if user_is_authorized_for_topics? %>
   <%= link_to "Edit Topic", edit_topic_path, class: 'btn btn-success' %>
   <%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this topic?' } %>
@@ -8,22 +8,22 @@
     <p class="lead"><%= @topic.description %></p>
       <%= link_to "New Post", new_topic_post_path(@topic), class: 'btn btn-success' %>
       <%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this topic?' } %>
-      <%= link_to "New Sponsored Post", new_topic_sponsored_post_path(@topic), class: 'btn btn-success' %>
+      <%= link_to "New Sponsored Post", new_topic_sponsored_post_path(@topic), class: 'btn btn-info' %>
       <hr>
     
         
       
       <div class='container'>
       <div class="jumbotron">
-      <h3 style='text-align: center;'> Topic Types </h3>
+      <h3 style='text-align: center;'class="topic-font"> Topic Types </h3>
       <hr>
         <div class="row">
           <div class="col-md-6">
             <div class="card" >
                 <div class=" card-title card-margin">
-                <h3>Posts </h3>
-                <p>Posts are articles associated with topic <%= @topic.name %> </p>
-                  <%= link_to 'View Posts', topic_posts_path(@topic), class:'btn btn-primary' %>
+                <h3 class="card-font">Posts </h3>
+                <p>Posts are articles associated with topic </p>
+                  <%= link_to 'View Posts', topic_posts_path(@topic), class: 'btn btn-primary btn-post' %>
                 </div>
             </div>
           </div>
@@ -31,9 +31,9 @@
           <div class="col-md-6">
             <div class="card">
               <div class="card-title card-margin">
-                <h3>Sponsored Posts</h3>
-                <p>Sponsored Posts is an advertisement of promoting a brand <%= @topic.name %> </p>
-                  <%= link_to 'View Sponsored Posts', topic_sponsored_posts_path(@topic), class:'btn btn-primary' %>
+                <h3 class="card-font">Sponsored Posts</h3>
+                <p>Sponsored Posts is an advertisement of promoting a brand  </p>
+                  <%= link_to 'View Sponsored Posts', topic_sponsored_posts_path(@topic), class:'btn btn-primary btn-sponsor' %>
                 </div>
             </div>
           </div>
@@ -59,7 +59,5 @@
         <% end %>
       </div>
     </div>
-
-    <hr>
   </div>    
 </div>

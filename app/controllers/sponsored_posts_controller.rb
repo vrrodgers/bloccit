@@ -14,13 +14,13 @@ class SponsoredPostsController < ApplicationController
 
   def create
     @sponsoredpost = SponsoredPost.new(sponsoredpost_params)
-    
-    if @sponsoredpost.save
-      flash[:notice] = "Sponsored Post was saved."
-      redirect_to [@topic, @sponsoredpost]
-     else
-      flash.now[:alert] = "There was an error saving the your SponsoredPost. Please try again."
-      render :new
+    @sponsoredpost.topic_id = @topic.id
+    respond_to do |format|
+      if @sponsoredpost.save
+         format.html { redirect_to topic_sponsored_post_path(@topic, @sponsoredpost), notice: 'Sponsored Post was saved.' }
+      else
+        format.html { render :new }
+      end
     end
   end
 

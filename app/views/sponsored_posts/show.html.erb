@@ -1,5 +1,6 @@
 <h1>SponsoredPosts</h1>
-<h1><%= @sponsoredpost.title %></h1>
+<hr>
+<h1 style="color: #007bff;"><%= @sponsoredpost.title %></h1>
  
   <div class="row">
    <div class="col-md-8">
@@ -8,4 +9,4 @@
    </div>
    
   </div>
-  <%= link_to @topic.name, topic_path(@topic),class: 'btn btn-primary' %>
+  <%= link_to 'Back to Topic', topic_path(@topic),class: 'btn btn-primary' %>
