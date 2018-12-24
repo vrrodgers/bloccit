@@ -1,4 +1,4 @@
-<h1 class="spon" >SponsoredPosts</h1>
+<h1 class="spon" >Sponsored Posts</h1>
 <hr>
 <h5 class="sponsor-title"><%= @sponsoredpost.title %></h5>
  
@@ -9,4 +9,5 @@
    </div>
    
   </div>
-  <%= link_to 'Back to Topic', topic_path(@topic),class: 'btn btn-primary' %>
+  <%= link_to 'Back to Topic', topic_path(@topic),class: 'btn btn-primary' %> |
+  <%= link_to 'Edit', edit_topic_sponsored_post_path(@topic, @sponsoredpost), class: 'btn btn-success' %>

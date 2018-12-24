@@ -1,13 +1,22 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+
 <%= content_tag :div, class: 'media', id: "comment-#{comment.id}" do %>
-  <div class="media">
-    <div class="media-body">
+  <div class="card h-100 comment">
+    <div class="card-body">
+      <p>
+        <i class="fas fa-quote-left">
+        </i><%= comment.body %>
+        <i class="fas fa-quote-right"></i>
+      </p>
+    </div>
+    <div class="card-footer">
       <small>
         <%= comment.user.name %> commented <%= time_ago_in_words(comment.created_at) %> ago
             <% if user_is_authorized_for_comment?(comment) %>
-         | <%= link_to "Delete", [comment.post, comment], method: :delete %>
+        | <%= link_to "Delete", [comment.post, comment], method: :delete %>
         <% end %>
       </small>
-        <p><%= comment.body %></p>
     </div>
   </div>
 <% end %>

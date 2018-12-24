@@ -10,54 +10,55 @@
       <%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this topic?' } %>
       <%= link_to "New Sponsored Post", new_topic_sponsored_post_path(@topic), class: 'btn btn-info' %>
       <hr>
+  </div>
+</div>
     
         
       
-      <div class='container'>
-      <div class="jumbotron">
-      <h3 style='text-align: center;'class="topic-font"> Topic Types </h3>
-      <hr>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card" >
-                <div class=" card-title card-margin">
-                <h3 class="card-font">Posts </h3>
-                <p>Posts are articles associated with topic </p>
-                  <%= link_to 'View Posts', topic_posts_path(@topic), class: 'btn btn-primary btn-post' %>
-                </div>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="card">
-              <div class="card-title card-margin">
-                <h3 class="card-font">Sponsored Posts</h3>
-                <p>Sponsored Posts is an advertisement of promoting a brand  </p>
-                  <%= link_to 'View Sponsored Posts', topic_sponsored_posts_path(@topic), class:'btn btn-primary btn-sponsor' %>
-                </div>
-            </div>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-
+<div class='container-fluid content-row'>
+  <div class="jumbotron">
+    <h3 style='text-align: center;'class="topic-font"> Topic Types </h3>
+    <hr>
     <div class="row">
       <div class="col-md-6">
-        <h2>Topic Posts</h2>
-        <br>
-        <% @posts.each do |post| %>
-          <%= render partial: 'posts/post', locals: {post: post} %>
-        <% end %>
+        <div class="card h-100" >
+            <div class=" card-title card-margin">
+            <h3 class="card-font">Posts </h3>
+            <p>Posts are articles associated with topic </p>
+              <%= link_to 'View Posts', topic_posts_path(@topic), class: 'btn btn-primary btn-post' %>
+            </div>
+        </div>
       </div>
 
       <div class="col-md-6">
-        <h2>Sponsored Posts</h2>
-        <br>
-        <% @sponsoredpost.each do |sponsoredpost| %>
-          <%= render partial: 'sponsored_posts/sponsoredpost', locals: {sponsoredpost: sponsoredpost} %>
-        <% end %>
-      </div>
+        <div class="card h-100">
+          <div class="card-title card-margin">
+            <h3 class="card-font">Sponsored Posts</h3>
+            <p>Sponsored Posts is an advertisement of promoting a brand  </p>
+              <%= link_to 'View Sponsored Posts', topic_sponsored_posts_path(@topic), class:'btn btn-primary btn-sponsor' %>
+            </div>
+        </div>
+      </div>  
     </div>
-  </div>    
+  </div>
+</div>
+  
+<div class='container-fluid content-row'>
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Topic Posts</h2>
+      <br>
+      <% @posts.each do |post| %>
+        <%= render partial: 'posts/post', locals: {post: post} %>
+      <% end %>
+    </div>
+
+    <div class="col-md-6">
+      <h2>Sponsored Posts</h2>
+      <br>
+      <% @sponsoredpost.each do |sponsoredpost| %>
+        <%= render partial: 'sponsored_posts/sponsoredpost', locals: {sponsoredpost: sponsoredpost} %>
+      <% end %>
+    </div>
+  </div>
 </div>

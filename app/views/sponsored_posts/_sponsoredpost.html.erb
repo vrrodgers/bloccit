@@ -1,11 +1,12 @@
 
-<div>
+<div class="h-10">
    <div class="body">
      <h4 class="heading">
        <%= link_to sponsoredpost.title, topic_sponsored_post_path(@topic, sponsoredpost) %>
      </h4>
      <small>
-        <%= sponsoredpost.body.truncate(52) %>      
+        <%= sponsoredpost.body.truncate(40) %>  
+        <br>    
         Price <%= number_to_currency(sponsoredpost.price) %>       
       </small>
    </div>
