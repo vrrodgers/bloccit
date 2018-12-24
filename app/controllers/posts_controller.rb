@@ -1,10 +1,12 @@
 class PostsController < ApplicationController
     before_action :require_sign_in, except: :show
-    before_action :authorize_user,  except: [:show, :new, :create]
+    before_action :authorize_user,  except: [:show, :new, :create, :index]
     before_action :authorize_admin_or_moderator, only: [:update, :edit]
   
   
   def index
+
+    @posts = Post.where(topic_id: params[:topic_id])
     @posts.each_with_index do |post, index|
       if index == 0 || index % 5 == 0
        post.title = "spam" 
@@ -16,6 +18,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @sponsoredposts = SponsoredPost.where(topic_id: params[:topic_id])
+    @vote = Vote.where(user_id: current_user.id).where(post_id: params[:id]).last
   end
 
   def new

@@ -41,6 +41,7 @@
  gem 'dotenv', '~> 2.5'
  # Used for encrypting passwords
  gem 'bcrypt'
+ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
 
  group :development do
    gem 'listen', '~> 3.0.5'

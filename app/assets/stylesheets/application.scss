@@ -14,10 +14,19 @@
  *= require_self
  */
 @import "bootstrap";
+@import "font-awesome";
 
 .card-margin{
     margin: 5px 5px 5px 5px;
 }
 .topic-title{
     float: center;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: blue;
+}
+
+.voting-space{
+    margin: 20px 20px 20px 5px;
 }

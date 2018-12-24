@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <%= link_to "Bloccit", root_path, class: "navbar-brand" %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <%= link_to "Topics", topics_path, class: "nav-link"%>
+          </li>
+          <li class="nav-item">
+            <%= link_to "About", about_path, class: "nav-link" %>
+          </li>
+        </ul>
+        <div class="pull-right">
+        <ul class="navbar-nav mr-auto">
+          <% if current_user %>
+            
+           <li class="nav-item">
+            <%= link_to "Sign Out", session_path(current_user), method: :delete, class: "nav-link" %>
+           </li>
+
+            <li class="nav-item">
+            <%= image_tag current_user.avatar_url(48) %>
+            </li>
+
+            <li class="nav-item">
+            <%= link_to current_user.name, user_path(current_user), class: "nav-link" %>
+            </li>
+          <% else %>
+          <li class="nav-item">
+            <%= link_to "Sign In", new_session_path, class: "nav-link" %> 
+          </li>
+            <li class="nav-item">
+            <%= link_to "Sign Up", new_user_path, class: "nav-link" %>
+          </li>
+          <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>

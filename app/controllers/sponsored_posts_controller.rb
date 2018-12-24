@@ -15,7 +15,6 @@ class SponsoredPostsController < ApplicationController
   def create
     @sponsoredpost = SponsoredPost.new(sponsoredpost_params)
     
-
     if @sponsoredpost.save
       flash[:notice] = "Sponsored Post was saved."
       redirect_to [@topic, @sponsoredpost]
@@ -26,16 +25,10 @@ class SponsoredPostsController < ApplicationController
   end
 
   def edit
-    @sponsoredpost = SponsoredPost.new
   end
+
   def update
-        @sponsoredpost = SponsoredPost.find(params[:id])
-    
-        @sponsoredpost.title = params[:sponsoredpost][:title]
-        @sponsoredpost.body = params[:sponsoredpost][:body]
-        @sponsoredpost.price = params[:sponsoredpost][:integer]
-    
-        if @sponsoredpost.save
+        if @sponsoredpost.update(sponsoredpost_params)
             flash[:notice] = "SponsoredPostc was updated."
           redirect_to @topic
         else

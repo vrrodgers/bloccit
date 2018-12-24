@@ -1,0 +1,7 @@
+<h2>Topic Posts</h2>
+        <br>
+        <% @posts.each do |post| %>
+        <%= render partial: 'posts/post', locals: {post: post} %>
+      <% end %>
+
+      <hr>

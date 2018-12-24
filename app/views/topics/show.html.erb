@@ -1,29 +1,29 @@
 <h1><%= @topic.name %></h1>
-  <% if user_is_authorized_for_topics? %>
-    <%= link_to "Edit Topic", edit_topic_path, class: 'btn btn-success' %>
-    <%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this topic?' } %>
-  <% end %>
-  <div class="row">
-    <div class="col-md-12">
-      <p class="lead"><%= @topic.description %></p>
-        <%= link_to "New Post", new_topic_post_path(@topic), class: 'btn btn-success' %>
-        <%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this topic?' } %>
-        <%= link_to "New Sponsored Post", new_topic_sponsored_post_path(@topic), class: 'btn btn-success' %>
-        <hr>
+<% if user_is_authorized_for_topics? %>
+  <%= link_to "Edit Topic", edit_topic_path, class: 'btn btn-success' %>
+  <%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this topic?' } %>
+<% end %>
+<div class="row">
+  <div class="col-md-12">
+    <p class="lead"><%= @topic.description %></p>
+      <%= link_to "New Post", new_topic_post_path(@topic), class: 'btn btn-success' %>
+      <%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this topic?' } %>
+      <%= link_to "New Sponsored Post", new_topic_sponsored_post_path(@topic), class: 'btn btn-success' %>
+      <hr>
+    
+        
       
-          
-       
       <div class='container'>
       <div class="jumbotron">
-       <h3 style='text-align: center;'> Topic Types </h3>
-       <hr>
+      <h3 style='text-align: center;'> Topic Types </h3>
+      <hr>
         <div class="row">
           <div class="col-md-6">
             <div class="card" >
                 <div class=" card-title card-margin">
                 <h3>Posts </h3>
-                 <p>Posts are articles associated with topic <%= @topic.name %> </p>
-                   <%= link_to 'View Posts', topic_post_path(@topic), class:'btn btn-primary' %>
+                <p>Posts are articles associated with topic <%= @topic.name %> </p>
+                  <%= link_to 'View Posts', topic_posts_path(@topic), class:'btn btn-primary' %>
                 </div>
             </div>
           </div>
@@ -33,23 +33,33 @@
               <div class="card-title card-margin">
                 <h3>Sponsored Posts</h3>
                 <p>Sponsored Posts is an advertisement of promoting a brand <%= @topic.name %> </p>
-                   <%= link_to 'View Sponsored Posts', topic_sponsored_posts_path(@topic), class:'btn btn-primary' %>
+                  <%= link_to 'View Sponsored Posts', topic_sponsored_posts_path(@topic), class:'btn btn-primary' %>
                 </div>
             </div>
           </div>
           
         </div>
       </div>
-      </div>
+    </div>
 
-
+    <div class="row">
+      <div class="col-md-6">
         <h2>Topic Posts</h2>
         <br>
-        <% @topic.posts.each do |post| %>
-        <%= render partial: 'posts/post', locals: {post: post} %>
-      <% end %>
-
-      <hr>
-       
+        <% @posts.each do |post| %>
+          <%= render partial: 'posts/post', locals: {post: post} %>
+        <% end %>
       </div>
-  </div>
+
+      <div class="col-md-6">
+        <h2>Sponsored Posts</h2>
+        <br>
+        <% @sponsoredpost.each do |sponsoredpost| %>
+          <%= render partial: 'sponsored_posts/sponsoredpost', locals: {sponsoredpost: sponsoredpost} %>
+        <% end %>
+      </div>
+    </div>
+
+    <hr>
+  </div>    
+</div>

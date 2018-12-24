@@ -9,6 +9,9 @@ class TopicsController < ApplicationController
     end
 
     def show
+      @posts = Post.where(topic_id: params[:id]).order(:created_at).limit(5)
+      @sponsoredpost = SponsoredPost.where(topic_id: params[:id]).order(:created_at).limit(5)
+
     end
 
     def new

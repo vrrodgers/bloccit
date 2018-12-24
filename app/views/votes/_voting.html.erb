@@ -1,9 +1,17 @@
-<div>
-    <% if current_user %>
-        <div class="vote-arrows pull-left">
-        <div><%= link_to " ", post_up_vote_path(post), class: 'glyphicon glyphicon-chevron-up', method: :post %></div>
-        <div><strong><%= post.points %></strong></div>
-        <div><%= link_to " ", post_down_vote_path(post), class: 'glyphicon glyphicon-chevron-down', method: :post %></div>
-    <% end %>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
+
+
+<div class="row voting-space">
+    <% if current_user %>
+        <div>
+            <div><%= link_to " ", post_down_vote_path(post), class: "fas fa-thumbs-down", style: voteup_status_color(@vote), method: :post %>
+                <%= pluralize(@post.down_votes, '') %>
+            
+
+                 <%= link_to " ", post_up_vote_path(post), class: "fas fa-thumbs-up", style: votedown_status_color(@vote),  method: :post %>
+                <%= pluralize(@post.up_votes, '') %>
+            </div>
+        </div>
+    <% end %>
 </div>
